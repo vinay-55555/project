@@ -59,13 +59,13 @@ app.use(express.static(path.join(__dirname,"public")))
 const store = new MongoStore({
     mongoUrl:dburl,
     crypto:{
-        secret:"my secret is here..",
+        secret:process.env.SECRET,
     },
     touchAfter:24 *3600,
 })
 
 
-const sessionOptions = {secret:"my secret is here..",
+const sessionOptions = {secret:process.env.SECRET,
     store,
     resave:false,
     saveUninitialized:true,
