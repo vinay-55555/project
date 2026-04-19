@@ -1,0 +1,127 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+  #filters{
+   display: flex;
+   align-items: center;
+
+  }
+  .filter{
+    margin-right: 2rem;
+    text-align: center;
+  }
+  .taxes{
+    display: none;
+  }
+  .tax-toggle{
+    border:0.2rem solid black;
+    border-radius: 1rem;
+    width: 15vw;
+    padding: 0.5rem;margin-left: 1rem;
+  }
+  
+</style>
+
+<div id="filters">
+
+  <div class="filter">
+  <div><i class="fa-solid fa-fire"></i></div>
+<p>Treading</p>
+</div>
+
+<div class="filter">
+  <div><i class="fa-solid fa-bed"></i></div>
+<p>Rooms</p>
+</div>
+
+<div class="filter">
+  <div><i class="fa-solid fa-umbrella-beach"></i></div>
+<p>Beach</p>
+</div>
+
+<div class="filter">
+  <div><i class="fa-solid fa-building-wheat"></i></div>
+<p>Farms</p>
+</div>
+
+<div class="filter">
+  <div><i class="fa-solid fa-mountain-city"></i></div>
+<p>Mountain</p>
+</div>
+
+<div class="filter">
+  <div><i class="fa-brands fa-fort-awesome"></i></div>
+<p>Carstles</p>
+</div>
+<div class="filter">
+  <div><i class="fa-solid fa-person-swimming"></i></div>
+<p>swim</p>
+</div>
+
+<div class="filter">
+  <div><i class="fa-solid fa-campground"></i></div>
+<p>Camping</p>
+</div>
+
+<div class="filter">
+  <div><i class="fa-solid fa-campground"></i></div>
+<p>Camping</p>
+</div>
+
+<div class="filter">
+  <div><i class="fa-solid fa-campground"></i></div>
+<p>Camping</p>
+</div>
+
+<div class="tax-toggle">
+<div class="form-check-reverse form-switch">
+  <input class="form-check-input" type="checkbox" role="switch" id="switchCheckDefault">
+  <label class="form-check-label" for="switchCheckDefault">Check with the Tax</label>
+</div>
+</div>
+</div>
+
+
+    <ul>
+        
+
+      <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3 ">  
+   <% for(value of allListing){ %>
+<a href="/listings/<%= value._id %>/show" class="listing-link">
+<div class="card col listing-card " style="width: 20rem;">
+  <img src="<%= value.image.url%>" class="card-img-top" alt="..." style ="height:20rem">
+  <div class="card-img-overlay"></div>
+  <div class="card-body">
+    <p class="card-text"><%= value.title %><br> <%= value.price %>    
+      &nbsp; &nbsp;<i class="taxes"> Tax-18%</i>
+
+    </p> 
+  </div>
+
+</div>
+</a>
+    <%}%>
+      </div>
+
+
+<script>
+  let taxSwitch = document.getElementById("switchCheckDefault");
+  // taxSwitch.addEventListener("click",()=>{
+  //      console.log("ok")
+  // })
+
+  taxSwitch.addEventListener("click",()=>{
+    let taxinfo = document.getElementsByClassName("taxes");
+    console.log(taxinfo)
+
+    for(info of taxinfo){
+      // info.style.display =  "inline"
+
+      if(info.style.display != "inline"){
+         info.style.display = "inline"
+      }else{
+        info.style.display = "none"
+      }
+    }
+  })
+
+</script>

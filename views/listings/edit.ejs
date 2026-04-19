@@ -1,0 +1,69 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+    
+<h3>here  you can Edit your own listing</h3>
+<br><br>
+<div class="row">
+    <div class="col-8 offset-2">
+
+<form method="POST" action="/listings/<%= allListing._id %>?_method=PUT"  novalidate class ="needs-validation" enctype="multipart/form-data">
+
+    <div class="mb-3">
+  <label for="title" class="form-label">Title</label>
+<input type="text" name="listing[title]" value="<%=allListing.title %>" class="form-control" required>
+<div class="valid-feedback">Looks Good</div> 
+<div class="invalid-feedback">Looks not  Good</div> 
+
+<br><br>
+
+    </div>
+     <div class="mb-3">
+  <label for="title" class="form-label">Description</label>
+<input type="text" name="listing[description]" value="<%= allListing.description %>" class="form-control" required>
+<div class="valid-feedback">Looks Good</div> 
+<div class="invalid-feedback">Looks not  Good</div> 
+ <br><br>
+        
+    </div>
+     <div class="mb-3">
+  <label for="title" class="form-label">Change your Image</label>
+<input type="file" name="listing[image]"  class="form-control">
+<div class="valid-feedback">Looks Good</div> 
+<div class="invalid-feedback">Looks not  Good</div> 
+<br><br>
+        
+    </div>
+    <div class="row">
+     <div class="mb-3  col-md-4" >
+  <label for="title" class="form-label">Price</label>
+<input type="number" name="listing[price]"  value="<%= allListing.price %>" class="form-control" required>
+<div class="valid-feedback">Looks Good</div> 
+<div class="invalid-feedback">Looks not  Good</div> 
+
+<br><br>
+        
+    </div>
+     <div class="mb-3  col-md-4" ">
+  <label for="title" class="form-label">Country</label>
+<input type="text" name="listing[country]" value="<%= allListing.country %>" class="form-control" required> <br><br>
+        
+    </div>
+    </div>
+     <div class="mb-3">
+  <label for="title" class="form-label">Location</label>
+<input type="text" name="listing[location]" value="<%= allListing.location %>" class="form-control" required>
+<div class="valid-feedback">Looks Good</div> 
+<div class="invalid-feedback">Looks not  Good</div> 
+<br><br>
+        
+    </div>
+
+<button class=" btn btn-dark edit-btn">Submit</button>
+
+</form>
+<br><br>
+</div>
+</div>
+
+</body>
