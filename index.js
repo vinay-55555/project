@@ -131,17 +131,17 @@ app.use("/", userRouter)
 
 
 
-app.use((req,res,next)=>{
-  next(new ExpressError(401,"aa gya error"));
-})
+// app.use((req,res,next)=>{
+//   next(new ExpressError(401,"aa gya error"));
+// })
  
 
-app.use((err,req,res,next)=>{
-let{status=402,message="somthing wrong here..."} = err
-// res.status(status).send(message)
-res.render("./listings/error.ejs",{err})
+// app.use((err,req,res,next)=>{
+// let{status=402,message="somthing wrong here..."} = err
+// // res.status(status).send(message)
+// res.render("./listings/error.ejs",{err})
   
-})
+// })
 
 
 app.listen(8080,()=>{
