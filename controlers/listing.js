@@ -29,15 +29,15 @@ module.exports.index = async(req,res)=>{
 
         module.exports.newListing = async (req,res,next)=>{
           
-  const location = req.body.listing.location; // form se aayega
+  // const location = req.body.listing.location; // form se aayega
 
-  const urlo = `https://api.maptiler.com/geocoding/${encodeURIComponent(location)}.json?key=${process.env.MAP_TOKEN}`;
+  // const urlo = `https://api.maptiler.com/geocoding/${encodeURIComponent(location)}.json?key=${process.env.MAP_TOKEN}`;
 
-  const response = await axios.get(urlo);
+  // const response = await axios.get(urlo);
 
-  const geometry = response.data.features[0].geometry;
+  // const geometry = response.data.features[0].geometry;
 
-  console.log(geometry);
+  // console.log(geometry);
           
             // let listing = req.body.listing;
             // console.log(listing)
@@ -73,8 +73,7 @@ module.exports.index = async(req,res)=>{
             const newlisting = new Listing(listing);
             newlisting.owner = req.user._id;
             newlisting.image  = {url, filename};
-               let rs = newlisting.geometry  =geometry;
-               console.log(rs)
+
 
               await newlisting.save()
               req.flash("success","New Listing Added Successfully")
